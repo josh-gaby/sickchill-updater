@@ -2,7 +2,7 @@
 
 After updating to the PIP version of SickChill, I found that it was no longer automatically updating so I wrote a quick script.
 
-I've setup a cron job to run this script once an hour (I know its overkill but the entire reason I created this was because I got sick of seeing the "update available" banner)
+I've setup a cron job to run this script once an hour (Yeah I know, its definitely overkill, but the entire reason I created this was because I got sick of seeing the "update available" banner)
 
 ### Installation
 Download the updater script:
