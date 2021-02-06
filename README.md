@@ -29,14 +29,14 @@ Next you'll need to edit the script and change a couple of variables:
 
 ```bash
 INSTALL_TYPE="GIT"
-SICKCHILL_PATH="/path/to/your/sickchill/installation"
+SICKCHILL_PATH="/path/to/your/sickchill/installation"  # i.e. ~/sickchill
 ```
  
  
 #### If you installed SickChill using PIP:
 ```bash
 INSTALL_TYPE="PIP"
-SICKCHILL_PATH="/path/to/your/sickchill/installation"
+SICKCHILL_PATH="/path/to/your/sickchill/installation" # i.e. ~/pip/bin
 ```
 For pip installations there is also an optional variable you can change called `PIP_PATH`, setting this will allow you to run the updates and restart Sickchill using a version of pip other than the default system version.
 
