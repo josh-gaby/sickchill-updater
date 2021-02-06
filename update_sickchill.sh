@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# This should be set to either PIP or GIT depending on how you installed Sickchill
+# This should be set to either PIP or GIT depending on how you installed SickChill
 INSTALL_TYPE=""
 
-# Path to your Sickchill installation (no trailing slash), this should point to the directory that contains your Sickchill.py file 
+# Path to your SickChill installation (no trailing slash), this should point to the directory that contains your Sickchill.py file 
 SICKCHILL_PATH=""
 
-# Path to your Sickchill pid file, leave empty if you dont start Sickchill with a --pidfile option
+# Path to your SickChill pid file, leave empty if you dont start SickChill with a --pidfile option
 SICKCHILL_PID=""
 
 # Path to your pip installation (no trailing slash), only required if INSTALL_TYPE is set to PIP and you dont want to use your systems default version of pip
 PIP_PATH=""
 
-# You can set this to a spicific python binary if required, or you can leave it empty and Sickchill will be restarted using your systems default python
+# You can set this to a spicific python binary if required, or you can leave it empty and SickChill will be restarted using your systems default python
 PYTHON_PATH=""
 
 ###################################################################################################################
@@ -41,7 +41,7 @@ function check_pip() {
 
 function check_git() {
     if [ -n "$SICKCHILL_PATH" ] ; then
-        # Make sure we are in the Sickchill directory
+        # Make sure we are in the SickChill directory
         cd "$SICKCHILL_PATH"
         NV_O_VER=$(git rev-parse HEAD)
         NV_N_VER=$(git rev-parse --verify --quiet "@{upstream}")
@@ -65,7 +65,7 @@ function update_pip() {
 
 function update_git() {
     if [ -n "$SICKCHILL_PATH" ] ; then
-        # Make sure we are in the Sickchill directory
+        # Make sure we are in the SickChill directory
         cd "$SICKCHILL_PATH"
         # Pull in the latest version using git
         git pull
@@ -109,6 +109,10 @@ echo '                                                        '
 echo ' version 0.2                                            '
 echo '********************************************************'
 
+NV_REQUIRED=false
+NV_O_VER=0
+NV_N_VER=0
+
 # Make sure that python path contains the correct python command if it has been left empty
 if [ -z "$PYTHON_PATH" ] ; then
     if [ -z "$PIP_PATH" ] ; then
@@ -121,10 +125,6 @@ fi
 echo ''
 echo "Checking if there is an update is available..."
 
-NV_REQUIRED=false
-NV_O_VER=0
-NV_N_VER=0
-
 # Check if there is an update available
 if [ "$INSTALL_TYPE" = "PIP" ] ; then
     check_pip
@@ -133,15 +133,15 @@ else
 fi
 
 echo ""
-echo "Installed version:  $NV_O_VER"
-echo "Latest Version:     $NV_N_VER"
+echo "Installed:  $NV_O_VER"
+echo "Latest:     $NV_N_VER"
 echo ""
 
 if [ "$NV_REQUIRED" = true ] ; then
     echo "Update available!"
     echo ""
     # Perform the update
-    echo "Updating Sickchill..."
+    echo "Updating SickChill..."
     if [ "$INSTALL_TYPE" = "PIP" ] ; then
         update_pip
     else
