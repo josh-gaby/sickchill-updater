@@ -3,13 +3,13 @@
 # This should be set to either PIP or GIT depending on how you installed Sickchill
 INSTALL_TYPE=""
 
-# Path to your Sickchill installation, this should point to the directory that contains your Sickchill.py file
+# Path to your Sickchill installation (no trailing slash), this should point to the directory that contains your Sickchill.py file 
 SICKCHILL_PATH=""
 
 # Path to your Sickchill pid file, leave empty if you dont start Sickchill with a --pidfile option
 SICKCHILL_PID=""
 
-# Path to your pip installation, only required if INSTALL_TYPE is set to PIP and you dont want to use your systems default version of pip
+# Path to your pip installation (no trailing slash), only required if INSTALL_TYPE is set to PIP and you dont want to use your systems default version of pip
 PIP_PATH=""
 
 # You can set this to a spicific python binary if required, or you can leave it empty and Sickchill will be restarted using your systems default python
@@ -89,18 +89,25 @@ function restart_sickchill() {
 }
 
 ###################################################################################################################
-
-echo '  _____   _          _             _       _   _   _     _    _               _           _                 '
-echo ' / ____| (_)        | |           | |     (_) | | | |   | |  | |             | |         | |                '
-echo '| (___    _    ___  | | __   ___  | |__    _  | | | |   | |  | |  _ __     __| |   __ _  | |_    ___   _ __ '
-echo ' \___ \  | |  / __| | |/ /  / __| | '\''_ \  | | | | | |   | |  | | | '\''_ \   / _` |  / _` | | __|  / _ \ | '\''__|'
-echo ' ____) | | | | (__  |   <  | (__  | | | | | | | | | |   | |__| | | |_) | | (_| | | (_| | | |_  |  __/ | |   '
-echo '|_____/  |_|  \___| |_|\_\  \___| |_| |_| |_| |_| |_|    \____/  | .__/   \__,_|  \__,_|  \__|  \___| |_|   '
-echo '                                                                 | |                                        '
-echo 'updater version 0.2                                              |_|                                        '
-echo '************************************************************************************************************'
-echo ''
-echo "Checking if an update is available..."
+echo '                                                        '
+echo '  #####                   #####                         '
+echo ' #     # #  ####  #    # #     # #    # # #      #      '
+echo ' #       # #    # #   #  #       #    # # #      #      '
+echo '  #####  # #      ####   #       ###### # #      #      '
+echo '       # # #      #  #   #       #    # # #      #      '
+echo ' #     # # #    # #   #  #     # #    # # #      #      '
+echo '  #####  #  ####  #    #  #####  #    # # ###### ###### '
+echo '                                                        '
+echo ' #     #                                                '
+echo ' #     # #####  #####    ##   ##### ###### #####        '
+echo ' #     # #    # #    #  #  #    #   #      #    #       '
+echo ' #     # #    # #    # #    #   #   #####  #    #       '
+echo ' #     # #####  #    # ######   #   #      #####        '
+echo ' #     # #      #    # #    #   #   #      #   #        '
+echo '  #####  #      #####  #    #   #   ###### #    #       '
+echo '                                                        '
+echo ' version 0.2                                            '
+echo '********************************************************'
 
 # Make sure that python path contains the correct python command if it has been left empty
 if [ -z "$PYTHON_PATH" ] ; then
@@ -110,6 +117,9 @@ if [ -z "$PYTHON_PATH" ] ; then
         PYTHON_PATH="${PIP_PATH}/python"
     fi
 fi
+
+echo ''
+echo "Checking if there is an update is available..."
 
 NV_REQUIRED=false
 NV_O_VER=0
