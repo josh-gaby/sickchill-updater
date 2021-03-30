@@ -123,7 +123,7 @@ if [ -z "$PYTHON_PATH" ] ; then
 fi
 
 echo ''
-echo "Checking if there is an update is available..."
+echo "Checking if there is an update available..."
 
 # Check if there is an update available
 if [ "$INSTALL_TYPE" = "PIP" ] ; then
